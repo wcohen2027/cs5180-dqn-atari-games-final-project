@@ -1,0 +1,13 @@
+# Updates to Thomas-SCHILLACHI/SIMPLE repo.
+- Refactor codebase to remove deprecated gym dependency
+- Fix conflicts that arise by using Google Collab for training
+- Add structured print statements for notebook subprocess parsing
+- Seperate singular helper (load_model) to multiple helpers to checkpoint along the way
+- Add new flags:
+    - `--ppo-eval-period` - evaluate the policy every x PPO iterations
+    - `--skip-world-model` - skip training the world model; loads existing world model and re-trains policy only
+    - `--start-epoch` - resume training from a given epoch (requires a matching checkpoint in `models/`)
+    - `--eval-only` - ONLY evaluate policies
+- Clean up subproc_vec_env.py to be more streamlined, and decouple from baselines
+- Fix torch.load calls to suppress PyTorch future warnings (weights_only flag)
+- World model trainer now surfaces training metrics after each epoch
